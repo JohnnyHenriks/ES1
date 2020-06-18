@@ -1,12 +1,22 @@
 public class ItensEncomenda {
+    private int Id;
     private int Quantidade;
     private Encomenda Encomenda;
     private Livro Livro;
 
-    public ItensEncomenda(int quantidade, Encomenda encomenda, Livro livro) {
+    public ItensEncomenda(int id, int quantidade, Encomenda encomenda, Livro livro) {
+        Id = id;
         Quantidade = quantidade;
         Encomenda = encomenda;
         Livro = livro;
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
     }
 
     public int getQuantidade() {
