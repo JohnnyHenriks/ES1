@@ -1,203 +1,80 @@
 import java.util.ArrayList;
 
-public class Repositorio extends Object {
-    private ArrayList<Encomenda> ListaEncomenda = new ArrayList<Encomenda>();
-    private ArrayList<ItensEncomenda> ListaItensEncomenda = new ArrayList<ItensEncomenda>();
-    private ArrayList<Entrega> ListaEntrega = new ArrayList<Entrega>();
-    private ArrayList<Envio> ListaEnvio = new ArrayList<Envio>();
-    private ArrayList<EstadoEncomenda> ListaEstadoEncomenda = new ArrayList<EstadoEncomenda>();
-    private ArrayList<Factura> ListaFactura = new ArrayList<Factura>();
-    private ArrayList<Funcionario> ListaFuncionario = new ArrayList<Funcionario>();
-    private ArrayList<Livro> ListaLivro = new ArrayList<Livro>();
-    private ArrayList<NotificacaoEmail> ListaNotificacaoEmail = new ArrayList<NotificacaoEmail>();
-    private ArrayList<Questionario> ListaQuestionario = new ArrayList<Questionario>();
-    private ArrayList<TipoEnvio> ListaTipoEnvio = new ArrayList<TipoEnvio>();
-    private ArrayList<TipoNotificacaoEmail> ListaTipoNotificacaoEmail = new ArrayList<TipoNotificacaoEmail>();
-    private ArrayList<Transportadora> ListaTransportadora = new ArrayList<Transportadora>();
-    private ArrayList<Utilizador> ListaUtilizador = new ArrayList<Utilizador>();
-    private ArrayList<Voucher> ListaVoucher = new ArrayList<Voucher>();
+public interface Repositorio{
+    ArrayList<Encomenda> ListaEncomenda = new ArrayList<Encomenda>();
+    ArrayList<ItensEncomenda> ListaItensEncomenda = new ArrayList<ItensEncomenda>();
+    ArrayList<Entrega> ListaEntrega = new ArrayList<Entrega>();
+    ArrayList<Envio> ListaEnvio = new ArrayList<Envio>();
+    ArrayList<EstadoEncomenda> ListaEstadoEncomenda = new ArrayList<EstadoEncomenda>();
+    ArrayList<Factura> ListaFactura = new ArrayList<Factura>();
+    ArrayList<Funcionario> ListaFuncionario = new ArrayList<Funcionario>();
+    ArrayList<Livro> ListaLivro = new ArrayList<Livro>();
+    ArrayList<NotificacaoEmail> ListaNotificacaoEmail = new ArrayList<NotificacaoEmail>();
+    ArrayList<Questionario> ListaQuestionario = new ArrayList<Questionario>();
+    ArrayList<TipoEnvio> ListaTipoEnvio = new ArrayList<TipoEnvio>();
+    ArrayList<TipoNotificacaoEmail> ListaTipoNotificacaoEmail = new ArrayList<TipoNotificacaoEmail>();
+    ArrayList<Transportadora> ListaTransportadora = new ArrayList<Transportadora>();
+    ArrayList<Utilizador> ListaUtilizador = new ArrayList<Utilizador>();
+    ArrayList<Voucher> ListaVoucher = new ArrayList<Voucher>();
 
-    public Repositorio(){
 
-    }
+    void adicionaEncomenda(Encomenda encomenda);
 
-    public void adicionaEncomenda(Encomenda encomenda){
-        ListaEncomenda.add(encomenda);
-    }
+    Encomenda devolveEncomenda(int id);
 
-    public Encomenda devolveEncomenda(int id){
-        for(Encomenda e: ListaEncomenda){
-            if(e.getId() == id)
-                return e;
-        }
-        return null;
-    }
+    void adicionaItensEncomenda(ItensEncomenda itensEncomenda);
 
-    public void adicionaItensEncomenda(ItensEncomenda itensEncomenda){
-        ListaItensEncomenda.add(itensEncomenda);
-    }
+    ItensEncomenda devolveItensEncomenda(int id);
 
-    public ItensEncomenda devolveItensEncomenda(int id){
-        for(ItensEncomenda ie: ListaItensEncomenda){
-            if(ie.getId() == id)
-                return ie;
-        }
-        return null;
-    }
+    void adicionaEntrega(Entrega entrega);
 
-    public void adicionaEntrega(Entrega entrega){
-        ListaEntrega.add(entrega);
-    }
+    Entrega devolveEntrega(int id);
 
-    public Entrega devolveEntrega(int id){
-        for(Entrega e: ListaEntrega){
-            if(e.getId() == id)
-                return e;
-        }
-        return null;
-    }
+    void adicionaEnvio(Envio envio);
 
-    public void adicionaEnvio(Envio envio){
-        ListaEnvio.add(envio);
-    }
+    Envio devolveEnvio(int NumEnv);
 
-    public Envio devolveEnvio(int NumEnv){
-        for(Envio e: ListaEnvio){
-            if(e.getNumEnv() == NumEnv)
-                return e;
-        }
-        return null;
-    }
+    void adicionaEstadoEncomenda(EstadoEncomenda estadoEncomenda);
 
-    public void adicionaEstadoEncomenda(EstadoEncomenda estadoEncomenda){
-        ListaEstadoEncomenda.add(estadoEncomenda);
-    }
+    EstadoEncomenda devolveEstadoEncomenda(int IdEstado);
 
-    public EstadoEncomenda devolveEstadoEncomenda(int IdEstado){
-        for(EstadoEncomenda ee: ListaEstadoEncomenda){
-            if(ee.getIdEstado() == IdEstado)
-                return ee;
-        }
-        return null;
-    }
+    void adicionaFactura(Factura factura);
 
-    public void adicionaFactura(Factura factura){
-        ListaFactura.add(factura);
-    }
+    Factura devolveFactura(String codFact);
 
-    public Factura devolveFactura(String codFact){
-        for(Factura f: ListaFactura){
-            if(f.getCodFact().equals(codFact))
-                return f;
-        }
-        return null;
-    }
+    void adicionaFuncionario(Funcionario funcionario);
 
-    public void adicionaFuncionario(Funcionario funcionario){
-        ListaFuncionario.add(funcionario);
-    }
+    Funcionario devolveFuncionario(String CodFunc);
 
-    public Funcionario devolveFuncionario(String CodFunc){
-        for(Funcionario f: ListaFuncionario){
-            if(f.getCodFunc().equals(CodFunc))
-                return f;
-        }
-        return null;
-    }
+    void adicionaLivro(Livro livro);
 
-    public void adicionaLivro(Livro livro){
-        ListaLivro.add(livro);
-    }
+    Livro devolveLivro(String ISBN);
 
-    public Livro devolveLivro(String ISBN){
-        for(Livro l: ListaLivro){
-            if(l.getISBN().equals(ISBN))
-                return l;
-        }
-        return null;
-    }
+    void adicionaNotificacaoEmail(NotificacaoEmail notificacaoEmail);
 
-    public void adicionaNotificacaoEmail(NotificacaoEmail notificacaoEmail){
-        ListaNotificacaoEmail.add(notificacaoEmail);
-    }
+    NotificacaoEmail devolveNotificacaoEmail(int codigoNot);
 
-    public NotificacaoEmail devolveNotificacaoEmail(int codigoNot){
-        for(NotificacaoEmail ne: ListaNotificacaoEmail){
-            if(ne.getCodigoNot() == codigoNot)
-                return ne;
-        }
-        return null;
-    }
+    void adicionaQuestionario(Questionario questionario);
 
-    public void adicionaQuestionario(Questionario questionario){
-        ListaQuestionario.add(questionario);
-    }
+    Questionario devolveQuestionario(int Id);
 
-    public Questionario devolveQuestionario(int Id){
-        for(Questionario q: ListaQuestionario){
-            if(q.getId() == Id)
-                return q;
-        }
-        return null;
-    }
+    void adicionaTipoEnvio(TipoEnvio tipoEnvio);
 
-    public void adicionaTipoEnvio(TipoEnvio tipoEnvio){
-        ListaTipoEnvio.add(tipoEnvio);
-    }
+    public TipoEnvio devolveTipoEnvio(int TipoEnvio);
 
-    public TipoEnvio devolveTipoEnvio(int TipoEnvio){
-        for(TipoEnvio te: ListaTipoEnvio){
-            if(te.getTipoEnvio() == TipoEnvio)
-                return te;
-        }
-        return null;
-    }
+    void adicionaTipoNotificacaoEmail(TipoNotificacaoEmail tipoNotificacaoEmail);
 
-    public void adicionaTipoNotificacaoEmail(TipoNotificacaoEmail tipoNotificacaoEmail){
-        ListaTipoNotificacaoEmail.add(tipoNotificacaoEmail);
-    }
+    TipoNotificacaoEmail devolveTipoNotificacaoEmail(String CodigoTipo);
 
-    public TipoNotificacaoEmail devolveTipoNotificacaoEmail(String CodigoTipo){
-        for(TipoNotificacaoEmail tne: ListaTipoNotificacaoEmail){
-            if(tne.getCodigoTipo().equals(CodigoTipo))
-                return tne;
-        }
-        return null;
-    }
+    void adicionaTransportadora(Transportadora transportadora);
 
-    public void adicionaTransportadora(Transportadora transportadora){
-        ListaTransportadora.add(transportadora);
-    }
+    Transportadora devolveTransportadora(int IdTransp);
 
-    public Transportadora devolveTransportadora(int IdTransp){
-        for(Transportadora t: ListaTransportadora){
-            if(t.getIdTransp() == IdTransp)
-                return t;
-        }
-        return null;
-    }
+    void adicionaUtilizador(Utilizador utilizador);
 
-    public void adicionaUtilizador(Utilizador utilizador){
-        ListaUtilizador.add(utilizador);
-    }
+    Utilizador devolveUtilizador(int Id);
 
-    public Utilizador devolveUtilizador(int Id){
-        for(Utilizador u: ListaUtilizador){
-            if(u.getId() == Id)
-                return u;
-        }
-        return null;
-    }
+    void adicionaVoucher(Voucher voucher);
 
-    public void adicionaVoucher(Voucher voucher){
-        ListaVoucher.add(voucher);
-    }
-
-    public Voucher devolveVoucher(int Id){
-        for(Voucher v: ListaVoucher){
-            if(v.getId() == Id)
-                return v;
-        }
-        return null;
-    }
+    Voucher devolveVoucher(int Id);
 }

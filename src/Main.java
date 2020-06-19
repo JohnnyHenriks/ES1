@@ -13,7 +13,7 @@ public class Main {
         NotificacaoEmail notificacaoEmail = new NotificacaoEmail(1, LocalDate.now(), utilizador.getEmail(),
                 "Confirmada a receção da encomenda, data prevista de entrega: ..., link para acompanhamento: ...",
                 encomenda, tipoNotificacaoEmail ,null);
-        Repositorio repositorio = new Repositorio();
+        RepositorioMem repositorio = new RepositorioMem();
         repositorio.adicionaEncomenda(encomenda);
         repositorio.adicionaItensEncomenda(itensEncomenda);
         repositorio.adicionaNotificacaoEmail(notificacaoEmail);
